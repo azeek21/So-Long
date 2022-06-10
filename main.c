@@ -1,28 +1,40 @@
 #include "so_long.h"
 
+void map_print(t_mlx *MLX){
+    int x; 
+    int y;
+
+    y = 0;
+    printf("Y: %d | X: %d\n", MLX->MAP->height, MLX->MAP->width);
+    while (y < MLX->MAP->height)
+    {
+        x = 0;
+        while (x < MLX->MAP->width)
+        {
+            printf(" %c |", MLX->MAP->map[y][x]);
+            x++;
+        }
+        printf("\n");
+        y++;
+    }
+    
+}
+
+
 int main(){
     t_mlx   MLX;
+    
+    initialize_mlx(&MLX);
+    map_print(&MLX);
+    // printf("Height: %d\n", MLX.MAP->height);
 
-    MLX.mlx = mlx_init();
-	MLX.win = mlx_new_window(MLX.mlx, 400, 300, "G A M E");
+    // while (y < MLX.MAP->height){
+    //     printf("%s\n", MLX.MAP->map[y]);
+    //     y++;
+    // }
 
-    printf("Window created!\n");
-    MLX.img->img = mlx_new_image(MLX.mlx, 400, 300);
-    MLX.img->addr = mlx_get_data_addr(MLX.img->img, &MLX.img->bpp, &MLX.img->line_length, &MLX.img->endian);
-    printf("Img created!\n");
-
-    MLX.img->x = 20;
-    MLX.img->y = 20;
-    MLX.width = 400;
-    MLX.height = 300;
-    MLX.counter_location[0] = MLX.width / 2;
-    MLX.counter_location[1] = 10;
-    MLX.counter = 0;
-    printf("X: %d, Y: %d\n", MLX.img->x, MLX.img->y);
-	mlx_put_image_to_window(MLX.mlx, MLX.win, MLX.img->img, 0, 0);
-    printf("Img shown\n");
-    init_hooks(&MLX);
-    // init_hooks(&MLX);
-    printf("Hook init!\n");
-	mlx_loop(MLX.mlx);
+    // new_img(&MLX, 1);
+    // draw_map(&MLX);
+    // // init_hooks(&MLX);
+	// mlx_loop(MLX.mlx);
 }

@@ -8,18 +8,18 @@ void	put_pixel(t_img *img, int x, int y, int color){
 	*(unsigned int*)dst = color;
 }
 
-void	draw_square(t_mlx *MLX, int width, int height, int color){
-	int tw;
+void	draw_square(t_mlx *MLX, int	xstart, int ystart,int color){
+	int x;
+	int	y;
 
-	tw = width;
-	printf("Drawing square\n\tx: %d, y: %d\n", MLX->img->x, MLX->img->y);
-	while (height){
-		width = tw;
-		while (width)
+	y = 0;
+	while (y <= MLX->block_height){
+		x = 0;
+		while (x <= MLX->block_width)
 		{
-			put_pixel(MLX->img, MLX->img->x + width, MLX->img->y + height, color);
-			width--;
+			put_pixel(MLX->img->img, xstart + x, ystart + y, color);
+			x++;
 		}
-		height--;
+		y++;
 	}
 }

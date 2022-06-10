@@ -8,6 +8,7 @@ OBJ = main.c\
 		move.c\
 		tools.c\
 		functions.c\
+		draw.c
 
 CC = gcc
 

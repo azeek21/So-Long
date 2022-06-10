@@ -3,7 +3,7 @@
 void	move_right(t_mlx *MLX){
 
 	if (MLX->width > MLX->img->x + 70){
-		new_img(MLX, 1);
+		// new_img(MLX, 0);
 		printf("RIGHT\n\tX: %d, Width: %d\n", MLX->img->x, MLX->width);
 		(MLX->img->x) = MLX->img->x + 40;
 		draw_square(MLX, 30, 30, 0x781bf2);
@@ -17,7 +17,7 @@ void	move_right(t_mlx *MLX){
 void	move_down(t_mlx *MLX){
 
 	if (MLX->height > MLX->img->y + 50){
-		new_img(MLX, 1);
+		// new_img(MLX, 0);
 		(MLX->img->y) = MLX->img->y + 40;
 		mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, 0, 0);
 		draw_square(MLX, 30, 30, 0x781bf2);
@@ -32,7 +32,7 @@ void	move_left(t_mlx *MLX){
 
 	printf("LEFT\n");
 	if (MLX->img->x - 30 >= 10){
-		new_img(MLX, 1);
+		// new_img(MLX, 0);
 		(MLX->img->x) = MLX->img->x - 40;
 		draw_square(MLX, 30, 30, 0x781bf2);
 		mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, 0, 0);
@@ -45,7 +45,7 @@ void	move_left(t_mlx *MLX){
 void	move_up(t_mlx *MLX){
 
 	if (MLX->img->y - 30 >= 10){
-		new_img(MLX, 1);
+		// new_img(MLX, 0);
 		(MLX->img->y) = MLX->img->y - 40;
 		draw_square(MLX, 30, 30, 0x781bf2);
 		mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, 0, 0);

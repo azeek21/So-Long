@@ -65,6 +65,7 @@ void	map_copy(t_map *MAP){
 		i++;
 		y++;
 	}
+	
 }
 
 void	init_map(t_map *MAP){
@@ -85,7 +86,7 @@ void	init_map(t_map *MAP){
 		if (MAP->map_str[MAP->player_position[0]] == '\n')
 			MAP->player_position[1] = MAP->player_position[1] + 1;
 		if (MAP->map_str[MAP->player_position[0]] == 'P'){
-			MAP->player_position[0] = MAP->player_position[0] % MAP->width - MAP->player_position[1];
+			MAP->player_position[0] = MAP->player_position[0]  - ((MAP->width + 1) *  MAP->player_position[1]);
 			break;
 		}
 		MAP->player_position[0] = MAP->player_position[0] + 1;
@@ -94,8 +95,27 @@ void	init_map(t_map *MAP){
 }
 
 void	get_map(char *path, t_map *MAP){
+
 	MAP->map_str = (char *)malloc(sizeof(char)*1000);
-	
 	open_map(path, MAP->map_str);
 	init_map(MAP);
 }
+
+// int main(){
+// 	t_map MAP;
+// 	int x = 0;
+// 	int y = 0;
+// 	printf("START !\n");
+// 	get_map("map.bar", &MAP);
+// 	while (y < MAP.height){
+// 		x = 0;
+// 		while (x < MAP.width)
+// 		{
+// 			printf("%c", MAP.map[x][y]);
+// 			x++;
+// 		}
+// 		printf("\n");
+// 		y++;
+// 	}
+// 	printf("DONE \n");
+// }

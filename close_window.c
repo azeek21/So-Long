@@ -29,4 +29,7 @@ int my_close(t_mlx *MLX){
 
 int	clear(t_mlx *MLX){
 	mlx_clear_window(MLX->mlx, MLX->win);
+	MLX->counter = 0;
+	MLX->img->x = 0;
+	MLX->img->y = 0;
 }
