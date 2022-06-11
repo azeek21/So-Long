@@ -29,17 +29,16 @@ void	draw_map(t_mlx *MLX){
 	int	ystart;
 
 	y = 0;
-	printf("1 | %d | %d\n", y, MLX->MAP->height);
+	printf("HEIGHT | %d\n", MLX->MAP->height);
+	printf("WIDTH | %d\n", MLX->MAP->width);
+
 	while (y < MLX->MAP->height){
 		x = 0;
 		printf("MAP AT: X: %d | Y: %d\n", x, y);
 		while (x < MLX->MAP->width){
 			xstart = (x * MLX->block_width) + (x * MLX->MAP->gap);
 			ystart = (y * MLX->block_height) + (y * MLX->MAP->gap);
-			printf("DRAWING BLOCK AT: X: %d | Y: %d\n", xstart, ystart);
-			printf("SORTING COLOR ! \n");
 			color_sorter(MLX, x, y);
-			printf("COLOR DONE !\n");
 			draw_square(MLX, xstart, ystart, MLX->cur_col);
 			x++;
 		}

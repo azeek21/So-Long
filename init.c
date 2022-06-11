@@ -1,10 +1,13 @@
 #include "so_long.h"
 
 int	new_img(t_mlx *MLX, int is_new){
-	t_img IMG;
+	t_img *IMG;
+
+	IMG = (t_img *)malloc(sizeof(t_img));
+
 	printf("CREATING NEW IMG !\n");
 	if (is_new){
-		MLX->img = &IMG;
+		MLX->img = IMG;
 		MLX->img->img = mlx_new_image(MLX->mlx, MLX->width, MLX->height);
     	MLX->img->addr = mlx_get_data_addr(MLX->img->img, &MLX->img->bpp, &MLX->img->line_length, &MLX->img->endian);
 	}
@@ -33,7 +36,6 @@ int	loop_hook_check(t_mlx *MLX){
 	update_counter(MLX, BLUE);
 }
 
-
 int	init_hooks(t_mlx *MLX){
 	mlx_key_hook(MLX->win,  listener, MLX);
 	mlx_hook(MLX->win, 17, 1L<<0, my_close, MLX);
@@ -42,17 +44,14 @@ int	init_hooks(t_mlx *MLX){
 }
 
 void initialize_mlx(t_mlx *MLX){
-    t_map MAP;
-    MLX->MAP = &MAP;
-	int x;
-	int y;
-	y = 0;
-	printf("Initializing MLX\n");
-    get_map("map.bar", &MAP);
+    t_map *MAP;
+
     MLX->mlx = mlx_init();
+	MAP = (t_map *)malloc(sizeof(t_map));
+    MLX->MAP = MAP;
+    get_map("map.bar", MLX->MAP);
     MLX->height = 300;
     MLX->width = 500;
-    MLX->win = mlx_new_window(MLX->mlx, MLX->width, MLX->height, "GAME");
     MLX->counter_location[0] = MLX->width / 2;
     MLX->counter_location[1] = 10;
     MLX->counter = 0;
@@ -61,7 +60,6 @@ void initialize_mlx(t_mlx *MLX){
 	MLX->block_height = 40;
 	MLX->block_width = 40;
 	MLX->MAP->gap = 10;
-	// new_img(MLX, 1);
-	printf("MLX init END!\n");
-
+	MLX->win = mlx_new_window(MLX->mlx, MLX->width, MLX->height, "GAME");
+	new_img(MLX, 1);
 }
