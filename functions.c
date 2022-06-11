@@ -65,19 +65,6 @@ void	map_copy(t_map *MAP){
 		i++;
 		y++;
 	}
-	y = 0;
-	while (y < MAP->height)
-	{
-		x = 0;
-		while (x < MAP->width)
-		{
-			printf("%c", MAP->map[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-	
 }
 
 void	init_map(t_map *MAP){

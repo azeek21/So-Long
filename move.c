@@ -3,11 +3,8 @@
 void	move_right(t_mlx *MLX){
 
 	if (MLX->width > MLX->img->x + 70){
-		// new_img(MLX, 0);
-		printf("RIGHT\n\tX: %d, Width: %d\n", MLX->img->x, MLX->width);
-		(MLX->img->x) = MLX->img->x + 40;
-		draw_square(MLX, 30, 30, 0x781bf2);
-		mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, 0, 0);
+		MLX->MAP->map[]
+		new_img(MLX, 0);
 		update_counter(MLX, BLUE);
 	}
 	else

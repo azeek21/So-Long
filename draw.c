@@ -4,8 +4,8 @@ void	color_sorter(t_mlx *MLX, int x, int y){
 	int		color;
 	char	block;
 
-	printf("SORTING COLOR! CHAR = %c\n", MLX->MAP->map[x][y]);
 	block = MLX->MAP->map[y][x];
+	// printf("%c", block);
 	if (block == '1')
 		color = GREEN;
 	else if (block == '0')
@@ -17,7 +17,7 @@ void	color_sorter(t_mlx *MLX, int x, int y){
 	else if (block ==  'C')
 		color = PURPLE;
 	MLX->cur_col = color;
-	printf("COLOR CHOSEN !\n");
+	// printf("COLOR CHOSEN !\n");
 }
 
 
@@ -34,17 +34,19 @@ void	draw_map(t_mlx *MLX){
 
 	while (y < MLX->MAP->height){
 		x = 0;
-		printf("MAP AT: X: %d | Y: %d\n", x, y);
+		// printf("MAP AT: X: %d | Y: %d\n", x, y);
 		while (x < MLX->MAP->width){
 			xstart = (x * MLX->block_width) + (x * MLX->MAP->gap);
 			ystart = (y * MLX->block_height) + (y * MLX->MAP->gap);
 			color_sorter(MLX, x, y);
 			draw_square(MLX, xstart, ystart, MLX->cur_col);
+			// printf("%c", MLX->MAP->map[y][x]);
 			x++;
 		}
+		// printf("\n");
 		y++;
 	}
 	printf("MAP DRAWN, putting to window !\n");
-	mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, 0, 0);
+	mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, MLX->img_location[0], MLX->img_location[1]);
 	printf("IMG SUCCESFULLY SHOWN !\n");
 }

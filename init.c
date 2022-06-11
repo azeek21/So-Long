@@ -57,9 +57,9 @@ void initialize_mlx(t_mlx *MLX){
     MLX->counter = 0;
     MLX->img_location[0] = 0;
     MLX->img_location[1] = 20;
-	MLX->block_height = 40;
-	MLX->block_width = 40;
-	MLX->MAP->gap = 10;
+	MLX->block_height = 30;
+	MLX->block_width = 30;
+	MLX->MAP->gap = 5;
 	MLX->win = mlx_new_window(MLX->mlx, MLX->width, MLX->height, "GAME");
 	new_img(MLX, 1);
 }
