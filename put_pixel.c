@@ -18,7 +18,7 @@ void	draw_square(t_mlx *MLX, int	xstart, int ystart,int color){
 		x = 0;
 		while (x < MLX->block_width)
 		{
-			put_pixel(MLX->img, xstart + x, ystart + y, color);
+			put_pixel(MLX->IMG, xstart + x, ystart + y, color);
 			x++;
 		}
 		y++;

@@ -39,7 +39,7 @@ typedef struct s_map{
 typedef struct	s_mlx {
 	void	*mlx;
 	void	*win;
-	t_img	*img;
+	t_img	*IMG;
 	t_map	*MAP;
 	int		height;
 	int		width;
@@ -66,7 +66,7 @@ int		char_count(char *str, char c, char stop);
 int		ft_strlen(char *s, char stop);
 int		map_check(t_map *MAP);
 int		walls_check(t_map *MAP);
-void	initialize_mlx(t_mlx *MLX);
+void	initialize_mlx(t_mlx *MLX, char *file);
 void	color_sorter(t_mlx *MLX, int x, int y);
 void	open_map(char *path, char *buf);
 int		walls_check(t_map *MAP);

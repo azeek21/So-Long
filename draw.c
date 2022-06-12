@@ -27,10 +27,10 @@ void	draw_map(t_mlx *MLX){
 	int	y;
 	int xstart;
 	int	ystart;
-
+	mlx_clear_window(MLX->mlx, MLX->win);
 	y = 0;
-	printf("HEIGHT | %d\n", MLX->MAP->height);
-	printf("WIDTH | %d\n", MLX->MAP->width);
+	// printf("HEIGHT | %d\n", MLX->MAP->height);
+	// printf("WIDTH | %d\n", MLX->MAP->width);
 
 	while (y < MLX->MAP->height){
 		x = 0;
@@ -46,7 +46,7 @@ void	draw_map(t_mlx *MLX){
 		// printf("\n");
 		y++;
 	}
-	printf("MAP DRAWN, putting to window !\n");
-	mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->img->img, MLX->img_location[0], MLX->img_location[1]);
-	printf("IMG SUCCESFULLY SHOWN !\n");
+	// printf("MAP DRAWN, putting to window !\n");
+	mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMG->img, MLX->img_location[0], MLX->img_location[1]);
+	// printf("IMG SUCCESFULLY SHOWN !\n");
 }

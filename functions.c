@@ -6,12 +6,14 @@ void	open_map(char *path, char *buf){
 	int	rd;
 
 	fd = open(path, O_RDONLY);
-	if (!fd){
+	printf("FD: %d\n",fd);
+	if (!fd || fd <= 0){
 		printf("File not found !\n");
 		exit(1);
 	}
 	rd = read(fd, buf, 100);
-	if (!rd){		
+	printf("RD: %d\n", rd);
+	if (!rd || fd <= 0){		
 		printf("Can't read file !\n");
 		exit(1);
 	}
@@ -99,22 +101,3 @@ void	get_map(char *path, t_map *MAP){
 	open_map(path, MAP->map_str);
 	init_map(MAP);
 }
-
-// int main(){
-// 	t_map MAP;
-// 	int x = 0;
-// 	int y = 0;
-// 	printf("START !\n");
-// 	get_map("map.bar", &MAP);
-// 	while (y < MAP.height){
-// 		x = 0;
-// 		while (x < MAP.width)
-// 		{
-// 			printf("%c", MAP.map[x][y]);
-// 			x++;
-// 		}
-// 		printf("\n");
-// 		y++;
-// 	}
-// 	printf("DONE \n");
-// }
