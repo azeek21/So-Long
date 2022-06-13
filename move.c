@@ -33,7 +33,7 @@ void	move_right(t_mlx *MLX){
 	if (is_safetomove(MLX, next))
 	{
 		move(MLX, MLX->MAP->player_position, next);
-		new_img(MLX, 0);
+		// new_img(MLX, 0);
 		draw_map(MLX);
 		update_counter(MLX, BLUE);
 	}
@@ -49,7 +49,7 @@ void	move_down(t_mlx *MLX){
 
 	if (is_safetomove(MLX, next)){
 		move(MLX, MLX->MAP->player_position, next);
-		new_img(MLX, 0);
+		// new_img(MLX, 0);
 		draw_map(MLX);
 		update_counter(MLX, BLUE);
 	}
@@ -66,7 +66,7 @@ void	move_left(t_mlx *MLX){
 
 	if (is_safetomove(MLX, next)){
 		move(MLX, MLX->MAP->player_position, next);
-		new_img(MLX, 0);
+		// new_img(MLX, 0);
 		draw_map(MLX);
 		update_counter(MLX, BLUE);
 	}
@@ -82,7 +82,7 @@ void	move_up(t_mlx *MLX){
 
 	if (is_safetomove(MLX, next)){
 		move(MLX, MLX->MAP->player_position, next);
-		new_img(MLX, 0);
+		// new_img(MLX, 0);
 		draw_map(MLX);
 		update_counter(MLX, BLUE);
 	}
