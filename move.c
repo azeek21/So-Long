@@ -96,9 +96,9 @@ int	update_counter(t_mlx *MLX, int color){
 
 	x = MLX->counter_location[0];
 	y = MLX->counter_location[1];
+	mlx_string_put(MLX->mlx, MLX->win, x, y, 0x000000, ft_itoa(MLX->counter));
 	MLX->counter = MLX->counter + 1;
 	char *string;
-
 	string = ft_itoa(MLX->counter);
 	mlx_string_put(MLX->mlx, MLX->win, x, y, color, string);
 	printf("COUNTER UPDATE: %d\n", MLX->counter);

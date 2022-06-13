@@ -27,7 +27,7 @@ void	put_block_at(t_mlx *MLX, int x,  int y, char *path){
 	int	height;
 
 	img = mlx_xpm_file_to_image(MLX->mlx, path, &width, &height);
-    mlx_put_image_to_window(MLX->mlx, MLX->win, img, x, y);
+    mlx_put_image_to_window(MLX->mlx, MLX->win, img, x + MLX->img_location[0], y + MLX->img_location[1]);
 }
 
 
@@ -52,6 +52,8 @@ void	draw_map(t_mlx *MLX){
 			// draw_square(MLX, xstart, ystart, MLX->cur_col);
 			if (MLX->MAP->map[y][x] == '1')
 				put_block_at(MLX, xstart, ystart, "images/wall.xpm");
+			if (MLX->MAP->map[y][x] == 'P')
+				put_block_at(MLX, xstart, ystart, "images/cat.xpm");
 			// printf("%c", MLX->MAP->map[y][x]);
 			x++;
 		}
