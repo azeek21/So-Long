@@ -41,7 +41,6 @@ void	draw_map(t_mlx *MLX){
 	y = 0;
 	// printf("HEIGHT | %d\n", MLX->MAP->height);
 	// printf("WIDTH | %d\n", MLX->MAP->width);
-
 	while (y < MLX->MAP->height){
 		x = 0;
 		// printf("MAP AT: X: %d | Y: %d\n", x, y);
@@ -51,9 +50,13 @@ void	draw_map(t_mlx *MLX){
 			// color_sorter(MLX, x, y);
 			// draw_square(MLX, xstart, ystart, MLX->cur_col);
 			if (MLX->MAP->map[y][x] == '1')
-				put_block_at(MLX, xstart, ystart, "images/wall.xpm");
+				put_block_at(MLX, xstart, ystart, "images/wall2.xpm");
 			if (MLX->MAP->map[y][x] == 'P')
-				put_block_at(MLX, xstart, ystart, "images/cat.xpm");
+				put_block_at(MLX, xstart, ystart, "images/cat3.xpm");
+			if (MLX->MAP->map[y][x] == 'E')
+				put_block_at(MLX, xstart, ystart, "images/pillow.xpm");
+			if (MLX->MAP->map[y][x] == 'C')
+				put_block_at(MLX, xstart, ystart, "images/mouse.xpm");
 			// printf("%c", MLX->MAP->map[y][x]);
 			x++;
 		}
