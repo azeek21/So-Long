@@ -45,9 +45,12 @@ int	init_hooks(t_mlx *MLX){
 
 void initialize_mlx(t_mlx *MLX, char *file){
     t_map *MAP;
+    t_images *IMAGES;
 
     MLX->mlx = mlx_init();
 	MAP = (t_map *)malloc(sizeof(t_map));
+	IMAGES = (t_images *)malloc(sizeof(t_images));
+    MLX->IMAGES = IMAGES;
     MLX->MAP = MAP;
     get_map(file, MLX->MAP);
     MLX->height = 600;
