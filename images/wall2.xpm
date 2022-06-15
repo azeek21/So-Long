@@ -155,7 +155,7 @@ static char *result[] = {
 "C. c #EAE9E9",
 "Z. c #F0EEEE",
 "A. c #FEFFFF",
-"S. c None",
+"S. c #449620",
 /* pixels */
 "Z.C = q 5 5 5 q 5 5 6 5 5 5 5 5 5 5 = R S.S.z J J J B J B B J B J B B J B B B z S.S.= 5 5 5 5 5 5 q 5 5 5 5 5 5 5 5 5 % @.S.$.b B B J B B ` B B J B J ",
 "M.< 3 w w w w w w w w w w w w w w w 3 Z S.B B J J J J J ` ` ` ` ` ' J ' ' ` ' n S.S.= w w w w w w w w w w w w w w w 6 < q S. .N K ` ` ` ` ` ` ` ` ` ` ",

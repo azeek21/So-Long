@@ -21,26 +21,37 @@ void	color_sorter(t_mlx *MLX, int x, int y){
 }
 
 
-void	put_block_at(t_mlx *MLX, int x,  int y, char *path){
+void	put_block(t_mlx *MLX, unsigned long int x, unsigned long int y, char c){
 	void	*img;
-	int	width;
-	int	height;
+	if (c == '1')
+	    mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMAGES->wall, x + MLX->img_location[0], y + MLX->img_location[1]);
 
-	img = mlx_xpm_file_to_image(MLX->mlx, path, &width, &height);
-    mlx_put_image_to_window(MLX->mlx, MLX->win, img, x + MLX->img_location[0], y + MLX->img_location[1]);
+	else if (c == 'P')
+	    mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMAGES->player, x + MLX->img_location[0], y + MLX->img_location[1]);
+		
+	else if (c == 'E')
+	    mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMAGES->door, x + MLX->img_location[0], y + MLX->img_location[1]);
+
+	else if (c == 'C')
+	    mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMAGES->collectible, x + MLX->img_location[0], y + MLX->img_location[1]);
+
+	// else if (c == '0')
+		return ;
+
 }
 
 
 void	draw_map(t_mlx *MLX){
-	printf("STARTED DRAWING MAP!\n");
-	int x;
-	int	y;
-	int xstart;
-	int	ystart;
+	printf("STARTED DRAWING MAP!\n\n\n");
+	unsigned long int x;
+	unsigned long int	y;
+	unsigned long xstart;
+	unsigned long ystart;
 	// mlx_clear_window(MLX->mlx, MLX->win);
 	y = 0;
+	x = 0;
 	// printf("HEIGHT | %d\n", MLX->MAP->height);
-	// printf("WIDTH | %d\n", MLX->MAP->width);
+	printf("WIDTH = %d | %d \n", MLX->block_width, MLX->MAP->gap);
 	while (y < MLX->MAP->height){
 		x = 0;
 		// printf("MAP AT: X: %d | Y: %d\n", x, y);
@@ -49,21 +60,16 @@ void	draw_map(t_mlx *MLX){
 			ystart = (y * MLX->block_height) + (y * MLX->MAP->gap);
 			// color_sorter(MLX, x, y);
 			// draw_square(MLX, xstart, ystart, MLX->cur_col);
-			if (MLX->MAP->map[y][x] == '1')
-				put_block_at(MLX, xstart, ystart, "images/wall2.xpm");
-			if (MLX->MAP->map[y][x] == 'P')
-				put_block_at(MLX, xstart, ystart, "images/cat3.xpm");
-			if (MLX->MAP->map[y][x] == 'E')
-				put_block_at(MLX, xstart, ystart, "images/pillow.xpm");
-			if (MLX->MAP->map[y][x] == 'C')
-				put_block_at(MLX, xstart, ystart, "images/mouse.xpm");
+			put_block(MLX, xstart, ystart, MLX->MAP->map[y][x]);
+			// printf("%ldx%ld ", (x * MLX->block_width) + (x * MLX->MAP->gap), ystart);
 			// printf("%c", MLX->MAP->map[y][x]);
 			x++;
 		}
-		// printf("\n");
+
+		printf("\n");
 		y++;
 	}
 	// printf("MAP DRAWN, putting to window !\n");
 	// mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMG->img, MLX->img_location[0], MLX->img_location[1]);
-	// printf("IMG SUCCESFULLY SHOWN !\n");
+	printf("IMG SUCCESFULLY SHOWN !\n");
 }

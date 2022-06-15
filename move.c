@@ -13,17 +13,18 @@ int	is_safetomove(t_mlx *MLX, int next_p[2]){
 }
 
 int	move(t_mlx *MLX, int from[2], int to[2]){
+	int	x;
+	int	y;
+
+	x = (from[0] * MLX->block_width) + (from[0] * MLX->MAP->gap);
+	y = (from[1] * MLX->block_width) + (from[1] * MLX->MAP->gap) + MLX->img_location[1];
 	MLX->MAP->map[from[1]][from[0]] = '0';
 	MLX->MAP->map[to[1]][to[0]] = 'P';
 	MLX->MAP->player_position[0] = to[0];
 	MLX->MAP->player_position[1] = to[1];
+	// draw_square(MLX, x, y, GREEN);
+	// mlx_put_image_to_window(MLX->mlx, MLX->win, MLX->IMG->img, 0, 0);
 }
-
-
-
-
-
-
 
 void	move_right(t_mlx *MLX){
 	int	next[2];
@@ -35,7 +36,7 @@ void	move_right(t_mlx *MLX){
 		move(MLX, MLX->MAP->player_position, next);
 		// new_img(MLX, 0);
 		draw_map(MLX);
-		update_counter(MLX, BLUE);
+		update_counter(MLX, WHITE);
 	}
 	else
 		printf("NAAH !\n");
@@ -51,7 +52,7 @@ void	move_down(t_mlx *MLX){
 		move(MLX, MLX->MAP->player_position, next);
 		// new_img(MLX, 0);
 		draw_map(MLX);
-		update_counter(MLX, BLUE);
+		update_counter(MLX, WHITE);
 	}
 	else
 		printf("Nah Bro!");
@@ -68,7 +69,7 @@ void	move_left(t_mlx *MLX){
 		move(MLX, MLX->MAP->player_position, next);
 		// new_img(MLX, 0);
 		draw_map(MLX);
-		update_counter(MLX, BLUE);
+		update_counter(MLX, WHITE);
 	}
 	else
 		printf("Nah Bro!");
@@ -84,7 +85,7 @@ void	move_up(t_mlx *MLX){
 		move(MLX, MLX->MAP->player_position, next);
 		// new_img(MLX, 0);
 		draw_map(MLX);
-		update_counter(MLX, BLUE);
+		update_counter(MLX, WHITE);
 	}
 	else
 		printf("Nah Bro!");

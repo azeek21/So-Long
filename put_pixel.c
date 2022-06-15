@@ -13,7 +13,7 @@ void	draw_square(t_mlx *MLX, int	xstart, int ystart,int color){
 	int	y;
 
 	y = 0;
-	// printf("DRAW SQUARE AT X: %d | Y: %d\n", xstart, ystart);
+	printf("DRAW SQUARE AT X: %d | Y: %d\n", xstart, ystart);
 	while (y < MLX->block_height){
 		x = 0;
 		while (x < MLX->block_width)

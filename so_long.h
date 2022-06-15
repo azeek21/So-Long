@@ -23,6 +23,18 @@ typedef struct	s_img {
 }				t_img;
 
 
+typedef struct s_images
+{
+	void	*wall;
+	void	*player;
+	void	*collectible;
+	void	*door;
+	void	*enemy;
+	int		width;
+	int		height;
+}	t_images;
+
+
 typedef struct s_map{
 	char	**map;
 	char	*map_str;
@@ -37,18 +49,19 @@ typedef struct s_map{
 }	t_map;
 
 typedef struct	s_mlx {
-	void	*mlx;
-	void	*win;
-	t_img	*IMG;
-	t_map	*MAP;
-	int		height;
-	int		width;
-	int		counter_location[2];
-	int		img_location[2];
-	int		counter;
-	int		block_width;
-	int		block_height;
-	int		cur_col;
+	void		*mlx;
+	void		*win;
+	t_img		*IMG;
+	t_images	*IMAGES;	
+	t_map		*MAP;
+	int			height;
+	int			width;
+	int			counter_location[2];
+	int			img_location[2];
+	int			counter;
+	int			block_width;
+	int			block_height;
+	int			cur_col;
 }	t_mlx;
 
 // typedef struct s_e_m {
@@ -73,6 +86,8 @@ int		walls_check(t_map *MAP);
 void	map_copy(t_map *MAP);
 void	init_map(t_map *MAP);
 void	get_map(char *path, t_map *MAP);
+
+void    intit_bg(t_mlx *MLX, int color);
 
 
 
