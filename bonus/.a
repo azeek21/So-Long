@@ -1,0 +1,18 @@
+CC = gcc
+
+SRCS = main.c\
+		animation.c\
+		close_window.c\
+		counter.c\
+		draw.c\
+		ft_itoa.c\
+		ft_printf.c\
+		init.c\
+		listener.c\
+		load_images.c\
+		locate.c\
+		map_init.c\
+		move.c\
+		put_pixel.c\
+		tools.c\
+
